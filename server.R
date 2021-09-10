@@ -356,7 +356,9 @@ server <- shinyServer(function(input, output, session) {
       nid <<- showNotification("Press Start to start the analysis.", duration = NULL, type = "message", closeButton = FALSE)
       updateSliderInput(session, "seqHom", min = min(DB$PepProtein_SeqHomology))
     } else if (isResultView(mode)) {
-      removeNotification(nid)
+      if (exists("nid")) {
+        removeNotification(nid)
+      }
     }
   })
   

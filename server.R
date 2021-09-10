@@ -240,6 +240,15 @@ server <- shinyServer(function(input, output, session) {
             )
           )
         )
+      } else {
+        sidebarLayout(
+          sidebarPanel(
+            tags$div(HTML("<strong><font color = #6895d1>Upstream Kinase Analysis</font></strong>")),
+            tags$hr(),
+            tags$div(HTML(paste("Mode is:", mode))),
+            tags$div(HTML(paste("computedResults is:", computedResults))),
+            width = 3),
+          mainPanel())
       }
     } else {
       sidebarLayout(
